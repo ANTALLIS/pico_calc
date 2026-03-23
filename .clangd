@@ -1,0 +1,12 @@
+# .clangd
+CompileFlags:
+  Add:
+    - --target=arm-none-eabi
+    - -mcpu=cortex-m0plus
+    - -mthumb
+    - --sysroot=/usr/lib/arm-none-eabi
+  Remove:
+    - -mcpu*
+    - -mthumb*
+    - -march*
+
