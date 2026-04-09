@@ -40,7 +40,7 @@ void lcd_init(void) {
   sleep_ms(100);
 
   lcd_send_command(0xA2);
-  lcd_send_command(0xA1);
+  lcd_send_command(0xA0);
   lcd_send_command(0xC8);
   lcd_send_command(0x40);
   lcd_send_command(0x26);
@@ -79,8 +79,14 @@ void lcd_update(void) {
 void lcd_draw_pixel(int x, int y, bool on) {
   if (x < 0 || x >= LCD_WIDTH || y < 0 || y >= LCD_HEIGHT)
     return;
+
+  // Mirror both axes for 180° rotation
+  x = (LCD_WIDTH - 1) - x;
+  y = (LCD_HEIGHT - 1) - y;
+
   uint8_t page = y / 8;
   uint8_t bit = y % 8;
+
   if (on)
     framebuffer[page][x] |= (1 << bit);
   else

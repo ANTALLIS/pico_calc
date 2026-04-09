@@ -1,0 +1,16 @@
+[
+  {
+    "file": "main.c",
+    "arguments": [
+      "gcc",
+      "-c",
+      "-o",
+      "main.o",
+      "-Wall",
+      "-Wextra",
+      "main.c"
+    ],
+    "directory": "/home/antallis/Workspace/github.com/ANTALLIS/pico_calc/tnt",
+    "output": "main.o"
+  }
+]
